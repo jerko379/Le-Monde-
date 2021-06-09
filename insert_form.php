@@ -86,11 +86,11 @@ require_once("connect.php");
 
         var slanjeForme = true;
 
-        // Naslov vjesti (5-30 znakova)
+        // Naslov vjesti (5-50 znakova)
         var poljeTitle = document.getElementById("title");
         var title = document.getElementById("title").value;
 
-        if (title.length < 5 || title.length > 30) {
+        if (title.length < 5 || title.length > 50) {
             slanjeForme = false;
             poljeTitle.style.border="1px dashed red";
             document.getElementById("porukaTitle").style.color="red";
@@ -100,7 +100,7 @@ require_once("connect.php");
             document.getElementById("porukaTitle").innerHTML="";
         }
 
-        // Kratki sadržaj (10-100 znakova)
+        // Kratki sadržaj (10-200 znakova)
         var poljeAbout = document.getElementById("about");
         var about = document.getElementById("about").value;
         if (about.length < 10 || about.length > 200) {
