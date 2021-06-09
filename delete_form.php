@@ -24,7 +24,7 @@ require_once("connect.php");
 <main id="article_main">
 <?php
 
-    $query = "SELECT * FROM clanak";
+    $query = "SELECT * FROM clanak ORDER BY datum DESC";
     $result = mysqli_query($dbc, $query);
     while($row = mysqli_fetch_array($result)) {
         $date = date_create($row['datum']);

@@ -23,7 +23,7 @@ require_once("connect.php");
 <main id="article_main">
     <?php
 
-    $query = "SELECT * FROM clanak";
+    $query = "SELECT * FROM clanak ORDER BY datum DESC";
     $result = mysqli_query($dbc, $query);
     while($row = mysqli_fetch_array($result)) {
 
@@ -58,11 +58,17 @@ require_once("connect.php");
         <div class="form-item">
             <label for="category">Kategorija vijesti:</label>
             <div class="form-field">
-                <select name="category" id="" class="form-field-textual"
-                        value="'.$row['kategorija'].'">
-                    <option value="Sport">Sport</option>
-                    <option value="Politika">Politika</option>
-                </select>
+                <select name="category" id="kategorija" class="form-field-textual">';
+        if ($row['kategorija'] =='Sport') {
+                     echo '<option selected value="Sport">Sport</option>
+                    <option value="Politika">Politika</option>';
+        }
+        else {
+            echo '<option  value="Sport">Sport</option>
+                    <option selected value="Politika">Politika</option>';
+        }
+
+               echo' </select>
             </div>
         </div>
         <div class="form-item">
